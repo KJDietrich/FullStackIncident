@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <link href="~/css/IncidentApp.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="~/js/IncidentApp.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNyTTI985RbrjLcU2gA5EVCOCfiKEbcEw&callback=IncidentApp.Map.AfterRender" async defer></script>
+    <meta name="viewport" content="width=device-width initial-scale=1.0" />
+    <title>911 Emergency Inciden Data</title>
+</head>
+<body>
+    <div class="FileSelector">
+        <label>Select a CAD file to display.</label>
+        <input type="file" class="AddFile" name="AddFile" />
+    </div>
+    <div class="AppBody">
+        <div id="TheMap"></div>
+    </div>
+</body>
+</html>
