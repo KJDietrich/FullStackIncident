@@ -13,7 +13,8 @@
 	- Allow the user to upload a data file, post it to the server, deserialize it into c# objects,
 	  re-serialize it into a JSON Object and deliver it back to JavaScript.
 	- The JavaScript then invokes the Google Maps API, centered on the coordinates of the
-	  incident address.
+	  incident address.  Running low on time, I had planned to add markers to the
+	  map for the 'apparatus' object positions as well.
 	- Create a controller method to accept API calls from the JavaScript and invoke the 
 	  darksky.net API described in the exercise and make much of the resulting data 
 	  available to view by the user.
