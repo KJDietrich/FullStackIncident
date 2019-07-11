@@ -25,11 +25,13 @@
 	- Make some of the Additional attributes in the uploaded data file available for the user
 	  to view.
 
-- Start to finish, this took me about 7 hours.  Unfortunately, I lost some time initially
-  building the C# business objects to de-serialize the JSON file into.  One of the attributes
-  has an illegal name in C#(~), so I had to expirement with ways to re-map it to an alternative
-  name.  Also, the date format in the text files were not natively parsed by the deserializers
-  that I tried and I sunk some more time finding a solution for that.  In hind-sight, for this
-  particular exercise, there was not really much value added to actually having the JSON file
-  as objects on the server side since nothing was done with them but sending them back to the
-  JavaScript as a JSON object.  Just a bit of a stack exercise.
+**How much time did I spend on it?**
+
+- Start to finish, this took me about 7 hours between last night and tonight.  Unfortunately, I lost some 
+  time initially building the C# business objects to de-serialize the JSON file into.  One of 
+  the attributes has an illegal name in C#(~), so I had to expirement with ways to re-map it 
+  to an alternative name.  Also, the date format in the text files were not natively parsed by 
+  the deserializers that I tried and I sunk some more time finding a solution for that.  In 
+  hind-sight, for this particular exercise, there was not really much value added to actually 
+  having the JSON file as objects on the server side since nothing was done with them but 
+  sending them back to the JavaScript as a JSON object.  Just a bit of a stack exercise.
