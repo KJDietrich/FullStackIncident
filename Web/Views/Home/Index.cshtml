@@ -1,19 +1,14 @@
-﻿
-@{
-    Layout = null;
-}
-
+﻿@using Web.Controllers;
+@{Layout = null;}
 <!DOCTYPE html>
-
-
 <html>
 <head>
-    <link href="~/css/IncidentApp.css" rel="stylesheet" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=@HomeController.SortofSecretMapsKey&callback=IncidentApp.Map.AfterRender" async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="~/js/IncidentApp.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNyTTI985RbrjLcU2gA5EVCOCfiKEbcEw&callback=IncidentApp.Map.AfterRender" async defer></script>
+    <link href="~/css/IncidentApp.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
-    <title>911 Emergency Inciden Data</title>
+    <title>911 Emergency Incident Data</title>
 </head>
 <body>
     <div class="FileSelector">
@@ -22,6 +17,36 @@
     </div>
     <div class="AppBody">
         <div id="TheMap"></div>
+        <button class="Reset" onclick="location.reload();">Reset</button>
+        <button class="ShowWeather">Weather Data (time of incident)</button>
+        <button class="ShowParcel">Show Parcel Data</button>
+        <button class="ShowAdditionalAttributes">Show Additional Attributes</button>
+    </div>
+    <div class="WeatherDataWindow">
+        <h2>Weather Data from darksky.net for </h2><h2 class="WeatherTime"></h2>
+        <div class="WeatherDataBody">
+
+        </div>
+        <button class="Close">Close</button>
+    </div>
+    <div class="ParcelDataWindow">
+        <h2>Parcel Data from http://gis.richmondgov.com</h2>
+        <div class="ParcelDataBody">
+            <label>Running low on time. If you watch the network traffic in the developer tools when the file
+            is uploaded, the conroller method accepts the Latitude/Longitude and Time values, then calls the 
+            API from the server and returns the Json result.  If you view the console, the resuling JSON object 
+            is logged there demonstrating that the call to the service was made.</label><br/><br />
+            <label>Without spending some time expirementing with the parameters of the query, I'm not certain how to 
+            retrieve meaningful results yet.  I'm assuming I should retrieve shape data with latitude/longitude 
+            information which could be used to draw shapes on the Map.</label><br /><br />
+        </div>
+        <button class="Close">Close</button>
+    </div>
+    <div class="AdditionalAttributesWindow">
+        <h2>Additional Attributes</h2>
+        <div class="AdditionalAttributesBody">
+        </div>
+        <button class="Close">Close</button>
     </div>
 </body>
 </html>

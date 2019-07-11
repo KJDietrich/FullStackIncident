@@ -8,4 +8,3 @@ C:\Users\KJ\Desktop\recruiting-fullstack-incidents-master\Solution\FullStackInci
 C:\Users\KJ\Desktop\recruiting-fullstack-incidents-master\Solution\FullStackIncident\FullStackIncident\Business\obj\Debug\netcoreapp2.2\Business.pdb
 C:\Users\KJ\Desktop\recruiting-fullstack-incidents-master\Solution\FullStackIncident\FullStackIncident\Business\bin\Debug\netcoreapp2.2\SourceData\F01705150050.json
 C:\Users\KJ\Desktop\recruiting-fullstack-incidents-master\Solution\FullStackIncident\FullStackIncident\Business\bin\Debug\netcoreapp2.2\SourceData\F01705150090.json
-C:\Users\KJ\Desktop\recruiting-fullstack-incidents-master\Solution\FullStackIncident\FullStackIncident\Business\obj\Debug\netcoreapp2.2\Business.csprojAssemblyReference.cache
