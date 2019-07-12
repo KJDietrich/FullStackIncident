@@ -726,7 +726,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\KJ.adm\\.nuget\\packages\\": {},
+    "C:\\Users\\KJ\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -735,14 +735,14 @@
       "projectUniqueName": "C:\\Users\\KJ\\Desktop\\recruiting-fullstack-incidents-master\\Solution\\FullStackIncident\\FullStackIncident\\Business\\Business.csproj",
       "projectName": "Business",
       "projectPath": "C:\\Users\\KJ\\Desktop\\recruiting-fullstack-incidents-master\\Solution\\FullStackIncident\\FullStackIncident\\Business\\Business.csproj",
-      "packagesPath": "C:\\Users\\KJ.adm\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\KJ\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\KJ\\Desktop\\recruiting-fullstack-incidents-master\\Solution\\FullStackIncident\\FullStackIncident\\Business\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\KJ.adm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\KJ\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

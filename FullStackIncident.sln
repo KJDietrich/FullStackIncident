@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ScreenShots", "ScreenShots"
 		ScreenShots\3 - Clicking Weather Data.png = ScreenShots\3 - Clicking Weather Data.png
 		ScreenShots\4 - Clicking Parcel Data -- API returns an object with 0 features.png = ScreenShots\4 - Clicking Parcel Data -- API returns an object with 0 features.png
 		ScreenShots\5 - Clicking Additional Attributes.png = ScreenShots\5 - Clicking Additional Attributes.png
+		ScreenShots\GIS Atttemp 1.png = ScreenShots\GIS Atttemp 1.png
+		ScreenShots\GIS Atttemp 2.png = ScreenShots\GIS Atttemp 2.png
 	EndProjectSection
 EndProject
 Global

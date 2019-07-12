@@ -116,8 +116,8 @@
         PopulateBody: function (data) {
             var param = {
                 latitude: data.address.latitude,
-                longitude: data.address.longitude,
-                eventDateUnixTime: IncidentApp.Weather.GetUnixTime(data.description.event_opened)
+                longitude: data.address.longitude//,
+                //eventDateUnixTime: IncidentApp.Weather.GetUnixTime(data.description.event_opened)
             };
             var tempDate = data.description.event_opened;
             var url = '/Home/ParcelAPI';

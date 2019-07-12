@@ -26,11 +26,22 @@
 	- Make some of the Additional attributes in the uploaded data file available for the user
 	  to view.
 
+- What I was unable to do:
+	- Retrieve meaningful data from the Parcel API.  When ever I apply a geometry parameter, be it two coordinates
+	  separated by a comma or a JSON geometry object, the result is always an empty JSON object.  If I move the 
+	  geometry object to the inSR or outSR parameter, then I still receive an empty object with a large list of
+	  'features' having only 'circles'.  In combing through the documentation, invoking a query seems straight 
+	  forward.  But unfortunately, without being able to retrieve any results, I am unable to do demonstrate an ability
+	  to do anything useful with them, such as draw shapes on the map API.
+
+	- I can invoke the end point programatically and retrieve an empty response, but after exhausting the api reference
+	  Google/Stack/Youtube and various message boards, I was unable to obtain anything useful from the api.
+
 **How much time did I spend on it?**
 
 - Start to finish, this took me about 7 hours between last night and tonight.  Unfortunately, I lost some 
   time initially building the C# business objects to de-serialize the JSON file into.  One of 
-  the attributes has an illegal name in C#(~), so I had to expirement with ways to re-map it 
+  the attributes has an illegal name in C#(~), so I had to experiment with ways to re-map it 
   to an alternative name.  Also, the date format in the text files were not natively parsed by 
   the deserializers that I tried and I sunk some more time finding a solution for that.  In 
   hind-sight, for this particular exercise, there was not really much value added to actually 

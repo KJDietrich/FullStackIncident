@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -11,6 +13,7 @@ namespace Web.Controllers
 {
     public class HomeController : Controller
     {
+        private static readonly HttpClient client = new HttpClient();
         /// <summary>
         /// These keys would normally be heald in some encryption mechanism that is part of source control
         /// or as encrypted text in a config or json file somewhere.  Ideally, some type of certificate
@@ -68,11 +71,16 @@ namespace Web.Controllers
             //Code duplicaiton here.. Could have a common method to impliment both 
             //Weather and Parcel APIs to get results back to JS, but I'm running low on time.
 
-            string url = "http://gis.richmondgov.com/ArcGIS/rest/services/StatePlane4502/Ener/MapServer/0/query";
+            string url = "http://gis.richmondgov.com/ArcGIS/rest/" + 
+                "services/StatePlane4502/Ener/MapServer/0/query";
+
             string geometryType = "esriGeometryPoint";
+            //string json = $"{{\"x\":{latitude},\"y\":{longitude},\"spatialReference\":{{\"wkid\":4326}}}}";
+            string inSR = $"%7B%22x%22%3A{latitude}%2C%22y%22%3A{longitude}%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D";
+            string where = "1%3D1";
 
-            url = $"{url}?geometry={latitude},{longitude}&geometryType={geometryType}&f=pjson";
-
+            url = $"{url}?geometryType={geometryType}&inSR={inSR}&where={where}&f=pjson";
+            
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "GET";
             HttpWebResponse responseObject = null;
@@ -91,6 +99,70 @@ namespace Web.Controllers
             {
                 return Json("Error calling parcel API.");
             }
+        }
+        //public async Task<JsonResult> ParcelAPIAsync(double latitude, double longitude)
+        //{
+        //    //string url = "http://gis.richmondgov.com/ArcGIS/rest/services/StatePlane4502/Ener/MapServer/0/query";///?f=json&pretty=true
+        //    string url = "http://gis.richmondgov.com/ArcGIS/rest/services/StatePlane4502/Ener/MapServer/0/query?f=pjson";///?f=json&pretty=true
+        //    dynamic param = GenParcelParam(latitude, longitude);
+
+        //    var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
+        //    httpWebRequest.ContentType = "application/json; charset=utf-8";
+        //    httpWebRequest.Method = "POST";
+
+        //    using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+        //    {
+        //        string json = JsonConvert.SerializeObject(param);
+
+        //        streamWriter.Write(json);
+        //        streamWriter.Flush();
+        //    }
+        //    var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+        //    var responseText = "";
+        //    using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+        //    {
+        //        responseText = streamReader.ReadToEnd();  
+        //    }
+
+
+
+        //    return Json(responseText);
+
+
+        //    //var content = new FormUrlEncodedContent(param);
+        //    //var response = await client.PostAsync(url, content);
+        //    //var responseString = await response.Content.ReadAsStringAsync();
+
+        //    //url = $"{url}?geometry={latitude},{longitude}&geometryType={geometryType}&f=pjson";
+        //    //HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+        //    //request.Method = "POST";
+        //    //HttpWebResponse responseObject = null;
+        //    //string responseJsonString = null;
+
+        //    //try
+        //    //{
+        //    //    responseObject = (HttpWebResponse)request.GetResponse();
+        //    //    Stream stream = responseObject.GetResponseStream();
+        //    //    StreamReader streamReader = new StreamReader(stream);
+        //    //    responseJsonString = streamReader.ReadToEnd();
+
+        //    //    return Json(JsonConvert.DeserializeObject<Object>(responseJsonString));
+        //    //}
+        //    //catch (Exception ex)
+        //    //{
+        //    //    return Json("Error calling parcel API.");
+        //    //}
+        //    //return Json(myParameter);
+        //}
+        private dynamic GenParcelParam(double latitude, double longitude)
+        {
+            dynamic myParameter = new ExpandoObject();
+            myParameter.spatialReference = new ExpandoObject();
+
+            myParameter.x = latitude;
+            myParameter.y = longitude;
+            myParameter.spatialReference.wkid = 4326;
+            return myParameter;
         }
     }
 }
